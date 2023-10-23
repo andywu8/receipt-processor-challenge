@@ -8,6 +8,9 @@ app = Flask(__name__)
 def home():
     return ('Home Page')
 
+'''
+Receives a JSON object and returns a hash id as a JSON object
+'''
 @app.route("/receipts/process", methods=['POST'])
 def process_receipt():
     data = request.json
@@ -20,6 +23,9 @@ def process_receipt():
         json.dump(data, f)
     return jsonify(return_data)
 
+'''
+Generates a hash id from a JSON object
+'''
 def generate_id(data):
     # Convert JSON to a string
     str_data = json.dumps(data)
