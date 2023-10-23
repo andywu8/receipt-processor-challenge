@@ -1,3 +1,13 @@
+# Run instructions 
+## Set up virtual environment
+python3 -m venv {env_name} \n
+pip install -r requirements.txt \n
+source {env_name}/bin/activate
+
+## Run command
+python3 app.py
+
+
 # Receipt Processor
 
 Build a webservice that fulfils the documented API. The API is described below. A formal definition is provided 
