@@ -1,6 +1,9 @@
 import requests
+import json
 def test():
-    response = requests.post('http://localhost:8000/receipts/process', json='./examples/morning-receipt.json')
+    f = open('./examples/morning-receipt.json')
+    json_data = json.load(f)
+    response = requests.post('http://localhost:8000/receipts/process', json=json_data)
     print("Status code: ", response.status_code)
     print("Printing Entire Post Request")
     print(response.json())
