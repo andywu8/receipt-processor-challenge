@@ -1,6 +1,7 @@
 import json
 from flask import Flask, jsonify, request
 import uuid
+from calculate import calculate_points
 app = Flask(__name__)
 
 
@@ -33,16 +34,18 @@ def generate_id(data):
     hash_id = uuid.uuid5(uuid.NAMESPACE_URL, str_data)
     return hash_id
 
-
-
-
-
-
+'''
+Returns a JSON object from a hash id
+'''
 @app.route("/receipts/<id>/points", methods=['GET'])
 def get_points(id):
-    return "ID is " + str(id)
-
-
+    with open('./data/'+str(id)+'.json') as f:
+        data = json.load(f)
+        points = calculate_points(data)
+        return_data = {
+            "points": points
+        }
+        return return_data
 
 
 if __name__ == "__main__":
