@@ -6,11 +6,11 @@ app = Flask(__name__)
 def main():
     print("Hello World!")
 
-@app.route("/")
+@app.route("/receipts/process", methods=['POST'])
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/receipts/<id>/points")
+@app.route("/receipts/<id>/points", methods=['GET'])
 def get_points(id):
     return "ID is " + str(id)
 
