@@ -1,23 +1,28 @@
 import json
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-def main():
-    print("Hello World!")
+
+@app.route("/")
+def home():
+    return ('Home Page')
 
 @app.route("/receipts/process", methods=['POST'])
-def hello_world():
-    return "<p>Hello, World!</p>"
+def process_receipt():
+    data = request.json
+    print("data", data)
+    return_data = {
+        "id": 5483
+    }
+    return jsonify(return_data)
+
 
 @app.route("/receipts/<id>/points", methods=['GET'])
 def get_points(id):
     return "ID is " + str(id)
 
 
-def process_receipt():
-    f = open('data.json')
-    data = json.load(f)
 
 
 if __name__ == "__main__":
