@@ -29,9 +29,9 @@ def calculate_points(data):
 
     # 50 points if the total is a round dollar amount with no cents.
     if str_cents == "00":
-        points += 50
         print("ends in 00")
-
+        points += 50
+        
     # 25 points if the total is a multiple of 0.25.
     if int(str_cents) % 25 == 0:
         print("multiple of 25")
