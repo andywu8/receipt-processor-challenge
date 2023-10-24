@@ -17,6 +17,8 @@ Then, run python3 post.py to post json data to the '/receipts/process' endpoint 
 Go to /receipts/{id}/points and use the id outputs given by the first post request to get the point outputs.
 
 
+# Description of Project
+Built using Python and Flask to create API endpoints that parse the json data and output point values. 
 
 # Receipt Processor
 
