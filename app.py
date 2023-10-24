@@ -20,7 +20,7 @@ def process_receipt():
     return_data = {
         "id": hash_id
     }
-    with open('./data/'+str(hash_id)+'.json', 'w') as f:
+    with open('./data/' + str(hash_id) + '.json', 'w') as f:
         json.dump(data, f)
     return jsonify(return_data)
 
@@ -39,14 +39,13 @@ Returns a JSON object from a hash id
 '''
 @app.route("/receipts/<id>/points", methods=['GET'])
 def get_points(id):
-    with open('./data/'+str(id)+'.json') as f:
+    with open('./data/' + str(id) + '.json') as f:
         data = json.load(f)
         points = calculate_points(data)
         return_data = {
             "points": points
         }
         return return_data
-
 
 if __name__ == "__main__":
     app.run(host='localhost', port=8000)

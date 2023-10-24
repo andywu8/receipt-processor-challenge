@@ -7,7 +7,6 @@ def calculate_points(data):
     total = data["total"]
     items = data["items"]
 
-                 
     # One point for every alphanumeric character in the retailer name.
     for char in retailer:
         if char.isalnum():

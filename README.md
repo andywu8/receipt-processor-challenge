@@ -7,7 +7,15 @@ pip install -r requirements.txt
 source {env_name}/bin/activate
 
 ## Run command
-python3 app.py
+### Step 1:
+Run python3 app.py to run app
+
+### Step 2 - Endpoint: Process Receipts:
+Then, run python3 post.py to post json data to the '/receipts/process' endpoint and then save the ids.
+
+### Step 3 - Endpoint: Get Points:
+Go to /receipts/<id>/points and use the id outputs given by the first post request to get the point outputs.
+
 
 
 # Receipt Processor
