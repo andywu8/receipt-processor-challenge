@@ -14,7 +14,7 @@ Run python3 app.py to run app
 Then, run python3 post.py to post json data to the '/receipts/process' endpoint and then save the ids.
 
 ### Step 3 - Endpoint: Get Points:
-Go to /receipts/<id>/points and use the id outputs given by the first post request to get the point outputs.
+Go to /receipts/{id}/points and use the id outputs given by the first post request to get the point outputs.
 
 
 
