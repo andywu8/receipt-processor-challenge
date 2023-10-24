@@ -1,26 +1,16 @@
 import requests
 import json
 
-def test_1():
-    f = open('./examples/morning-receipt.json')
+def post(json_file):
+    f = open(json_file)
+    print("json file: ", json_file)
     json_data = json.load(f)
     response = requests.post('http://localhost:8000/receipts/process', json=json_data)
-    print("Status code: ", response.status_code)
-    print("Printing Entire Post Request")
-    print(response.json())
-
-def test_2():
-    f = open('./examples/simple-receipt.json')
-    json_data = json.load(f)
-    response = requests.post('http://localhost:8000/receipts/process', json=json_data)
-    # print("Status code: ", response.status_code)
-    # print("Printing Entire Post Request")
     return response.json()
-    print(response.json())
-
-
 
 if __name__ == "__main__":
-    print("morning receipt: ", test_1())
-    print("simple receipt: ", test_2())
+    morning_receipt = './examples/morning-receipt.json'
+    simple_receipt = './examples/simple-receipt.json'
+    print("morning receipt id: ", post(morning_receipt))
+    print("simple receipt id: ", post(simple_receipt))
 
